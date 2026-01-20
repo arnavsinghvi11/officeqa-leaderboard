@@ -1,0 +1,17 @@
+{
+  "image_digests": {
+    "green-agent": "ghcr.io/arnavsinghvi11/officeqa-judge@sha256:012a6915725c3219e33a4312ab2e4a04a68b21d080d3c8ce3cd5895c8c4821ee",
+    "officeqa_agent": "ghcr.io/arnavsinghvi11/officeqa-agent@sha256:a0e7011561855a02336675a579f08743fffe3d16e8054b6c38702b376af9cf2c",
+    "agentbeats-client": "ghcr.io/agentbeats/agentbeats-client@sha256:13dfe3ef4e583a80e7ce2fe3becd0ce3b879841368a7f4fa40b6ebbabeeb014e"
+  },
+  "timestamp": "2026-01-20T23:24:13Z",
+  "github_actions": {
+    "run_url": "https://github.com/arnavsinghvi11/officeqa-leaderboard/actions/runs/21190016866",
+    "run_logs_url": "https://api.github.com/repos/arnavsinghvi11/officeqa-leaderboard/actions/runs/21190016866/logs",
+    "ref": "refs/heads/trigger-run",
+    "sha": "ddd0b6c88394e899676b69357b30b666d7ba5e01",
+    "repository_url": "https://github.com/arnavsinghvi11/officeqa-leaderboard",
+    "workflow_ref": "arnavsinghvi11/officeqa-leaderboard/.github/workflows/run-scenario.yml@refs/heads/trigger-run",
+    "workflow_sha": "ddd0b6c88394e899676b69357b30b666d7ba5e01"
+  }
+}
