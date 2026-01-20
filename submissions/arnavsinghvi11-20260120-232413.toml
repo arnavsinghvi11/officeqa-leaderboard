@@ -1,0 +1,15 @@
+[green_agent]
+agentbeats_id = "arnavsinghvi11/officeqa"
+env = { LOG_LEVEL = "INFO" }
+
+[[participants]]
+agentbeats_id = "arnavsinghvi11/officeqa-sample-baseline-agent"
+name = "officeqa_agent"
+env = { OPENAI_API_KEY = "${OPENAI_API_KEY}" }
+
+[config]
+dataset_url = "https://raw.githubusercontent.com/databricks/officeqa/main/officeqa.csv"
+num_questions = 246
+difficulty = "all"
+tolerance = 0.0
+
