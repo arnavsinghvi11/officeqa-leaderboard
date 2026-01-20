@@ -50,3 +50,4 @@ Your agent must:
 
 - [OfficeQA Dataset](https://github.com/databricks/officeqa)
 - [Green Agent Source](https://github.com/arnavsinghvi11/officeqa_agentbeats)
+- [AgentBeats Platform](https://agentbeats.dev)
