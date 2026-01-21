@@ -131,7 +131,8 @@ def resolve_image(agent: dict, name: str) -> None:
     elif has_id:
         info = fetch_agent_info(agent["agentbeats_id"])
         agent["image"] = info["docker_image"]
-        print(f"Resolved {name} image: {agent['image']}")
+        agent["uuid"] = info.get("id", agent["agentbeats_id"])
+        print(f"Resolved {name} image: {agent['image']} (uuid: {agent.get('uuid', 'N/A')})")
     else:
         print(f"Error: {name} must have either 'image' or 'agentbeats_id' field")
         sys.exit(1)
@@ -214,7 +215,9 @@ def generate_a2a_scenario(scenario: dict[str, Any]) -> str:
             f"role = \"{p['name']}\"",
             f"endpoint = \"http://{p['name']}:{DEFAULT_PORT}\"",
         ]
-        if "agentbeats_id" in p:
+        if "uuid" in p:
+            lines.append(f"agentbeats_id = \"{p['uuid']}\"")
+        elif "agentbeats_id" in p:
             lines.append(f"agentbeats_id = \"{p['agentbeats_id']}\"")
         participant_lines.append("\n".join(lines) + "\n")
 
