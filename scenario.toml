@@ -3,7 +3,7 @@ agentbeats_id = "arnavsinghvi11/officeqa"
 env = { LOG_LEVEL = "INFO" }
 
 [[participants]]
-agentbeats_id = "arnavsinghvi11/officeqa-sample-baseline-agent"
+agentbeats_id = "arnavsinghvi11/officeqa-gpt-5-2-high-reasoning-base-agent-no-tools"
 name = "officeqa_agent"
 env = { OPENAI_API_KEY = "${OPENAI_API_KEY}", OPENAI_MODEL = "gpt-5.2", REASONING_EFFORT = "medium" }
 
@@ -12,4 +12,4 @@ dataset_url = "https://raw.githubusercontent.com/databricks/officeqa/main/office
 num_questions = 246
 difficulty = "all"
 tolerance = 0.0
-run_id = 1
+run_id = 2
