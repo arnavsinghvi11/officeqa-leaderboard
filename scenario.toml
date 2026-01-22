@@ -3,7 +3,7 @@ agentbeats_id = "arnavsinghvi11/officeqa"
 env = { LOG_LEVEL = "INFO" }
 
 [[participants]]
-agentbeats_id = "arnavsinghvi11/officeqa-sample-baseline-agent"
+agentbeats_id = "arnavsinghvi11/officeqa-claude-opus-4-5-base-agent-no-tools"
 name = "officeqa_agent"
 env = { ANTHROPIC_API_KEY = "${ANTHROPIC_API_KEY}", ANTHROPIC_MODEL = "claude-opus-4-5-20251101" }
 
@@ -12,4 +12,4 @@ dataset_url = "https://raw.githubusercontent.com/databricks/officeqa/main/office
 num_questions = 246
 difficulty = "all"
 tolerance = 0.0
-run_id = 2
+run_id = 3
