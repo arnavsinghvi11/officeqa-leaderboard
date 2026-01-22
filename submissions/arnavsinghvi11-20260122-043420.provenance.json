@@ -1,0 +1,17 @@
+{
+  "image_digests": {
+    "green-agent": "ghcr.io/arnavsinghvi11/officeqa-judge@sha256:2af8be55689dcb5d918cddf0df7f1c765d9f4890a036143ff2257868233c2347",
+    "officeqa_agent": "ghcr.io/arnavsinghvi11/officeqa-agent@sha256:b00b2e07cf8f0b357483eb61ea7210499ac71d8afce74305daa40374d02040d1",
+    "agentbeats-client": "ghcr.io/agentbeats/agentbeats-client@sha256:13dfe3ef4e583a80e7ce2fe3becd0ce3b879841368a7f4fa40b6ebbabeeb014e"
+  },
+  "timestamp": "2026-01-22T04:34:20Z",
+  "github_actions": {
+    "run_url": "https://github.com/arnavsinghvi11/officeqa-leaderboard/actions/runs/21235750903",
+    "run_logs_url": "https://api.github.com/repos/arnavsinghvi11/officeqa-leaderboard/actions/runs/21235750903/logs",
+    "ref": "refs/heads/run-gpt52-medium-v2",
+    "sha": "24b583ea97870d68910f0b2126acfed8707f5ee9",
+    "repository_url": "https://github.com/arnavsinghvi11/officeqa-leaderboard",
+    "workflow_ref": "arnavsinghvi11/officeqa-leaderboard/.github/workflows/run-scenario.yml@refs/heads/run-gpt52-medium-v2",
+    "workflow_sha": "24b583ea97870d68910f0b2126acfed8707f5ee9"
+  }
+}
