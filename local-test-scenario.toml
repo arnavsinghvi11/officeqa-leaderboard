@@ -1,0 +1,14 @@
+[green_agent]
+image = "ghcr.io/arnavsinghvi11/officeqa-judge:latest"
+env = { LOG_LEVEL = "INFO" }
+
+[[participants]]
+image = "ghcr.io/arnavsinghvi11/officeqa-agent:latest"
+name = "officeqa_agent"
+env = { OPENAI_API_KEY = "${OPENAI_API_KEY}", OPENAI_MODEL = "gpt-5.2", REASONING_EFFORT = "medium", ENABLE_WEB_SEARCH = "true" }
+
+[config]
+dataset_url = "https://raw.githubusercontent.com/databricks/officeqa/main/officeqa.csv"
+num_questions = 4
+difficulty = "all"
+tolerance = 0.0
