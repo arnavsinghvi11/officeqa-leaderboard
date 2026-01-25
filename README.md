@@ -8,8 +8,9 @@ OfficeQA is a grounded reasoning benchmark that tests AI systems on complex ques
 
 | Metric | Value |
 |--------|-------|
-| Total Questions | 168-246 |
-| Document Source | U.S. Treasury Bulletins |
+| Total Questions | 246 |
+| Corpus | U.S. Treasury Bulletins |
+| Time Span | January 1939 - September 2025 |
 | Difficulty Levels | Easy, Hard |
 | Question Types | Extraction, Calculation, Statistical Analysis |
 
@@ -26,7 +27,7 @@ Final score is accuracy (correct / total questions).
 
 | Parameter | Default | Description |
 |-----------|---------|-------------|
-| `num_questions` | 10 | Number of questions to evaluate |
+| `num_questions` | 246 | Number of questions to evaluate |
 | `difficulty` | "all" | Filter by difficulty: "easy", "hard", or "all" |
 | `tolerance` | 0.0 | Numerical tolerance (0.0 = exact, 0.05 = 5%) |
 

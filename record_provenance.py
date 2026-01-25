@@ -2,16 +2,20 @@
 
 import argparse
 import json
+import logging
 import os
 import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 try:
     import yaml
 except ImportError:
-    print("Error: pyyaml required. Install with: pip install pyyaml")
+    logger.error("pyyaml required. Install with: pip install pyyaml")
     sys.exit(1)
 
 
@@ -23,12 +27,12 @@ def get_image_digest(image: str) -> str:
         text=True,
     )
     if result.returncode != 0:
-        print(f"Error: Failed to inspect image '{image}': {result.stderr.strip()}")
+        logger.error(f"Failed to inspect image '{image}': {result.stderr.strip()}")
         sys.exit(1)
 
     digest = result.stdout.strip()
     if not digest:
-        print(f"Error: No registry digest found for image '{image}'")
+        logger.error(f"No registry digest found for image '{image}'")
         sys.exit(1)
 
     return digest
@@ -105,14 +109,14 @@ def main():
     args = parser.parse_args()
 
     if not args.compose.exists():
-        print(f"Error: {args.compose} not found")
+        logger.error(f"{args.compose} not found")
         sys.exit(1)
 
     compose = parse_compose(args.compose)
     image_digests = collect_image_digests(compose)
     write_provenance(args.output, image_digests)
 
-    print(f"Recorded provenance to {args.output} ({len(image_digests)} images)")
+    logger.info(f"Recorded provenance to {args.output} ({len(image_digests)} images)")
 
 
 if __name__ == "__main__":

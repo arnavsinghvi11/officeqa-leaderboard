@@ -1,11 +1,15 @@
 """Generate Docker Compose configuration from scenario.toml"""
 
 import argparse
+import logging
 import os
 import re
 import sys
 from pathlib import Path
 from typing import Any
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 try:
     import tomli
@@ -13,17 +17,17 @@ except ImportError:
     try:
         import tomllib as tomli
     except ImportError:
-        print("Error: tomli required. Install with: pip install tomli")
+        logger.error("tomli required. Install with: pip install tomli")
         sys.exit(1)
 try:
     import tomli_w
 except ImportError:
-    print("Error: tomli-w required. Install with: pip install tomli-w")
+    logger.error("tomli-w required. Install with: pip install tomli-w")
     sys.exit(1)
 try:
     import requests
 except ImportError:
-    print("Error: requests required. Install with: pip install requests")
+    logger.error("requests required. Install with: pip install requests")
     sys.exit(1)
 
 
@@ -38,13 +42,13 @@ def fetch_agent_info(agentbeats_id: str) -> dict:
         response.raise_for_status()
         return response.json()
     except requests.exceptions.HTTPError as e:
-        print(f"Error: Failed to fetch agent {agentbeats_id}: {e}")
+        logger.error(f" Failed to fetch agent {agentbeats_id}: {e}")
         sys.exit(1)
     except requests.exceptions.JSONDecodeError:
-        print(f"Error: Invalid JSON response for agent {agentbeats_id}")
+        logger.error(f" Invalid JSON response for agent {agentbeats_id}")
         sys.exit(1)
     except requests.exceptions.RequestException as e:
-        print(f"Error: Request failed for agent {agentbeats_id}: {e}")
+        logger.error(f" Request failed for agent {agentbeats_id}: {e}")
         sys.exit(1)
 
 
@@ -121,20 +125,20 @@ def resolve_image(agent: dict, name: str) -> None:
     has_id = "agentbeats_id" in agent
 
     if has_image and has_id:
-        print(f"Error: {name} has both 'image' and 'agentbeats_id' - use one or the other")
+        logger.error(f" {name} has both 'image' and 'agentbeats_id' - use one or the other")
         sys.exit(1)
     elif has_image:
         if os.environ.get("GITHUB_ACTIONS"):
-            print(f"Error: {name} requires 'agentbeats_id' for GitHub Actions (use 'image' for local testing only)")
+            logger.error(f" {name} requires 'agentbeats_id' for GitHub Actions (use 'image' for local testing only)")
             sys.exit(1)
-        print(f"Using {name} image: {agent['image']}")
+        logger.info(f"Using {name} image: {agent['image']}")
     elif has_id:
         info = fetch_agent_info(agent["agentbeats_id"])
         agent["image"] = info["docker_image"]
         agent["uuid"] = info.get("id", agent["agentbeats_id"])
-        print(f"Resolved {name} image: {agent['image']} (uuid: {agent.get('uuid', 'N/A')})")
+        logger.info(f"Resolved {name} image: {agent['image']} (uuid: {agent.get('uuid', 'N/A')})")
     else:
-        print(f"Error: {name} must have either 'image' or 'agentbeats_id' field")
+        logger.error(f" {name} must have either 'image' or 'agentbeats_id' field")
         sys.exit(1)
 
 
@@ -151,8 +155,8 @@ def parse_scenario(scenario_path: Path) -> dict[str, Any]:
     names = [p.get("name") for p in participants]
     duplicates = [name for name in set(names) if names.count(name) > 1]
     if duplicates:
-        print(f"Error: Duplicate participant names found: {', '.join(duplicates)}")
-        print("Each participant must have a unique name.")
+        logger.error(f" Duplicate participant names found: {', '.join(duplicates)}")
+        logger.error("Each participant must have a unique name.")
         sys.exit(1)
 
     for participant in participants:
@@ -265,7 +269,7 @@ def main():
     args = parser.parse_args()
 
     if not args.scenario.exists():
-        print(f"Error: {args.scenario} not found")
+        logger.error(f" {args.scenario} not found")
         sys.exit(1)
 
     scenario = parse_scenario(args.scenario)
@@ -280,9 +284,9 @@ def main():
     if env_content:
         with open(ENV_PATH, "w") as f:
             f.write(env_content)
-        print(f"Generated {ENV_PATH}")
+        logger.info(f"Generated {ENV_PATH}")
 
-    print(f"Generated {COMPOSE_PATH} and {A2A_SCENARIO_PATH}")
+    logger.info(f"Generated {COMPOSE_PATH} and {A2A_SCENARIO_PATH}")
 
 if __name__ == "__main__":
     main()
