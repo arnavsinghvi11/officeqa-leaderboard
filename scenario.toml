@@ -4,7 +4,7 @@ env = { LOG_LEVEL = "INFO" }
 
 [[participants]]
 agentbeats_id = "019bf668-adb0-7730-b2d4-e8bcc3745089"
-name = "gpt5_websearch_agent"
+name = "officeqa_agent"
 env = { OPENAI_API_KEY = "${OPENAI_API_KEY}", OPENAI_MODEL = "gpt-5.2", ENABLE_WEB_SEARCH = "true" }
 
 [config]
