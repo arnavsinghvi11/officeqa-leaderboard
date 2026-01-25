@@ -3,13 +3,13 @@ agentbeats_id = "arnavsinghvi11/officeqa"
 env = { LOG_LEVEL = "INFO" }
 
 [[participants]]
-agentbeats_id = "arnavsinghvi11/officeqa-sample-baseline-agent"
-name = "officeqa_agent"
-env = { OPENAI_API_KEY = "${OPENAI_API_KEY}", OPENAI_MODEL = "gpt-5.2", REASONING_EFFORT = "medium" }
+agentbeats_id = "019bf668-adb0-7730-b2d4-e8bcc3745089"
+name = "gpt5_websearch_agent"
+env = { OPENAI_API_KEY = "${OPENAI_API_KEY}", OPENAI_MODEL = "gpt-5.2", ENABLE_WEB_SEARCH = "true" }
 
 [config]
 dataset_url = "https://raw.githubusercontent.com/databricks/officeqa/main/officeqa.csv"
 num_questions = 246
 difficulty = "all"
 tolerance = 0.0
-run_id = 1
+run_id = 2
