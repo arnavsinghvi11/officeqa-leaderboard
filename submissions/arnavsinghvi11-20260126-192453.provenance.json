@@ -1,0 +1,17 @@
+{
+  "image_digests": {
+    "green-agent": "ghcr.io/arnavsinghvi11/officeqa-judge@sha256:ec0a09fa4a4be4219b890689da3a8d05dc6613365a231d0df1d3761b97afcb02",
+    "officeqa_agent": "ghcr.io/arnavsinghvi11/officeqa-agent@sha256:57724e80606dddce2528f721659199629a5c38669f6591b1613e243bb695d739",
+    "agentbeats-client": "ghcr.io/agentbeats/agentbeats-client@sha256:13dfe3ef4e583a80e7ce2fe3becd0ce3b879841368a7f4fa40b6ebbabeeb014e"
+  },
+  "timestamp": "2026-01-26T19:24:53Z",
+  "github_actions": {
+    "run_url": "https://github.com/arnavsinghvi11/officeqa-leaderboard/actions/runs/21343210965",
+    "run_logs_url": "https://api.github.com/repos/arnavsinghvi11/officeqa-leaderboard/actions/runs/21343210965/logs",
+    "ref": "refs/heads/claude-opus-45-websearch",
+    "sha": "915053b13cfc822c4b7c3ec3fd9c76a29141784b",
+    "repository_url": "https://github.com/arnavsinghvi11/officeqa-leaderboard",
+    "workflow_ref": "arnavsinghvi11/officeqa-leaderboard/.github/workflows/run-scenario.yml@refs/heads/claude-opus-45-websearch",
+    "workflow_sha": "915053b13cfc822c4b7c3ec3fd9c76a29141784b"
+  }
+}
