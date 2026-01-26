@@ -1,0 +1,15 @@
+[green_agent]
+agentbeats_id = "arnavsinghvi11/officeqa"
+env = { LOG_LEVEL = "INFO" }
+
+[[participants]]
+agentbeats_id = "019bf7e5-fa8b-7fb0-99d9-38b2879e3481"
+name = "officeqa_agent"
+env = { LLM_PROVIDER = "anthropic", ANTHROPIC_API_KEY = "${ANTHROPIC_API_KEY}", ANTHROPIC_MODEL = "claude-opus-4-5-20251101", ENABLE_WEB_SEARCH = "true" }
+
+[config]
+dataset_url = "https://raw.githubusercontent.com/databricks/officeqa/main/officeqa.csv"
+num_questions = 246
+difficulty = "all"
+tolerance = 0.0
+run_id = 3
